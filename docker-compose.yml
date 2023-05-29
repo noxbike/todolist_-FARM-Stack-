@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+    react:
+      container_name: react
+      build: ./todolist
+      ports:
+        - "3000:3000"
+      volumes:
+        - .:/home/node/code
+        - /home/node/code/node_modules
+      environment:
+        - CHOKIDAR_USEPOLLING=true
+        - CI=true
+    api:
+        build: ./api
+        ports: 
+            - 80:80
+        environment:
+            - DB_URL=mongodb://db/myTestDB
+        volumes:
+            - ./api:/api
+    db:
+        image: mongo
+        ports:
+            - 27017:27017
+        volumes:
+            - taskdb:/data/db
+volumes:
+    taskdb:
