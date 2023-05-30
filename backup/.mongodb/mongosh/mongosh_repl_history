@@ -1,0 +1,15 @@
+db.todolist.find()
+show collections
+use todolist_FARM
+show dbs
+use test
+db.todolist.find()
+db.todolist.insert({task:"laver la voiture", description: "emmener la voiture au station service et laver avec la machine automatique", tag: "pas important", lists: "personal", when: [24,6,2023]})
+db.todolist.find()
+show collections
+use todolist_FARM
+show dbs
+show collections
+show collectionsh
+show listcollections
+show collections

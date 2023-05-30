@@ -1,4 +1,6 @@
+motor
+pymongo
+typing
+pydantic
 fastapi
 uvicorn
-typing
-pymongo
