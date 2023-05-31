@@ -1,0 +1,16 @@
+#menu{
+    text-align: left;
+    padding-top: 55px;
+    background-color:rgb(26, 32, 39);
+    position: absolute;
+    top: 0;
+    min-width: 260px;
+    min-height: 100vh;
+    z-index: 0;
+}
+
+#menu .container{
+    width: 80%;
+    min-width: 208px;
+    margin: auto;
+}

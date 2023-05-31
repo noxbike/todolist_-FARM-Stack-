@@ -1,0 +1,17 @@
+#collection{
+    display: flex;
+    flex-direction: row;
+}
+
+#collection .icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px;
+    border-radius: 6px;
+}

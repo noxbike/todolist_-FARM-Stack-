@@ -1,0 +1,49 @@
+#top_bar{
+    position: fixed;
+    top: 0;
+    background-color: rgb(26, 32, 39);
+    box-shadow: 0 0 10px rgb(18, 18, 18);
+    color: white;
+    font-weight: 600;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1;
+}
+
+#top_bar .left, #top_bar .right{
+    display: flex;
+    justify-content: space-around;
+}
+
+#top_bar .left{
+    width: 100%;
+    max-width: 348.72px;
+}
+#top_bar .right{
+ width: 100%;
+ max-width: 209.23px;
+}
+
+#top_bar .right img{
+    width: 30px;
+    border-radius: 50px;
+}
+
+#top_bar .addIcon{
+    background: rgb(120,0,105);
+    background: linear-gradient(30deg, rgba(120,0,105,1) 36%, rgba(247,242,142,1) 120%);
+    height: 25px;
+    width: 25px;
+    border-radius: 6px;
+}
+
+#top_bar .textIcon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 110px;
+}
