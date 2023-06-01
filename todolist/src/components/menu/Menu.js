@@ -1,15 +1,7 @@
 import React from 'react'
 import "./menu.css"
-import Collections from '../collections/Collections'
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import PersonIcon from '@mui/icons-material/Person';
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-
-const lists =[
-    { name: 'work', color: 'green', icon: <MenuBookIcon/> },
-    { name: 'personal', color: 'red', icon: <PersonIcon/>},
-    { name: 'grocery', color: 'purple', icon: <LocalGroceryStoreIcon/>}
-];
+import Collections from './Collections'
+import {lists} from '../datatest.js';
 
 export default function Menu() {
   return (

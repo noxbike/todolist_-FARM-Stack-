@@ -1,0 +1,21 @@
+.Accordion{
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 40px;
+}
+
+.icon-collection{
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.head-accordion{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import "./top_bar.css"
+import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import AddIcon from '@mui/icons-material/Add';
@@ -13,14 +14,14 @@ export default function TopBar() {
     <div id='top_bar'>
         <div className='left'>
             <MenuOutlinedIcon/>
-            <div className='textIcon'>
+            <Link to="/" className='textIcon'>
                 <DashboardIcon/>
                 dashboard
-            </div>
-            <div className='textIcon'>
+            </Link>
+            <Link to="/collections" className='textIcon'>
                 <ArticleIcon/>
                 collections
-            </div>
+            </Link>
         </div>
         <div className='right'>
             <div className='addIcon'>

@@ -14,6 +14,11 @@
     z-index: 1;
 }
 
+#top_bar a{
+    text-decoration: none;
+    color: white;
+}
+
 #top_bar .left, #top_bar .right{
     display: flex;
     justify-content: space-around;
