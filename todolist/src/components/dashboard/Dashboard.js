@@ -1,6 +1,7 @@
 import React from 'react'
+import "./dashboard.css"
 import Menu from '../menu/Menu'
-import { lists } from '../datatest'
+import { lists } from '../data/datatest'
 import DropdownCollection from '../dropdownCollection/DropdownCollection'
 
 export default function Dashboard() {

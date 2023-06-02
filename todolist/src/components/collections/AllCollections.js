@@ -1,7 +1,7 @@
 import React from 'react'
 import "./AllCollection.css"
 import AddIcon from '@mui/icons-material/Add';
-import { lists } from "../datatest.js";
+import { lists } from "../data/datatest.js";
 
 export default function AllCollections() {
   return(

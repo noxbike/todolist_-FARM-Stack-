@@ -1,21 +1,76 @@
-.Accordion{
+#Accordion{
     width: 600px;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
-.icon-collection{
-    width: 40px;
-    height: 40px;
+#Accordion .container{
+    border-radius: 10px;
+}
+#Accordion .icon-collection{
+    width: 30px;
+    height: 30px;
     border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
 }
+#Accordion .link{
+    margin-top: 15px;
+    border-top: 1px solid rgba(128, 128, 128, 0.272);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+#Accordion .link p{
+    margin:5px;
+}
 
-.head-accordion{
+#Accordion .head-accordion{
     display: flex;
     flex-direction: row;
+}
+
+#Accordion .todo-list{
+    text-align: left;
+}
+
+#Accordion .todo-list div{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+#Accordion .todo-list .check{
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+#Accordion .todo-list .detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+#Accordion .todo-list .task{
+    margin: 0;
+}
+
+#Accordion a {
+    text-decoration: none;
+    color: white;
+}
+
+#Accordion .hours{
+    margin: 0;
+    font-weight: 100;
+    color: rgb(255, 55, 55);
+    font-size: 14px;
 }

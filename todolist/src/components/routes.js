@@ -1,5 +1,6 @@
 import AllCollections from "./collections/AllCollections";
 import Dashboard from "./dashboard/Dashboard";
+import TodoInCollection from "./todoInCollection/TodoInCollection";
 
 export const routes = [
     {
@@ -9,5 +10,9 @@ export const routes = [
     {
         path:"/collections",
         element: <AllCollections />
+    },
+    {
+        path:"collection/:collection",
+        element: <TodoInCollection/>
     }
 ]

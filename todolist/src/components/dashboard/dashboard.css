@@ -1,5 +1,19 @@
 #dashboard{
     padding-top: 50px;
-    padding-right: 260px;
-    border: 2px solid blue;
+    font-weight: 600;
+}
+#dashboard .filter, #dashboard .welcome, #dashboard .title{
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+}
+
+#dashboard .filter{
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row;
+}
+#dashboard .filter div{
+    margin-right: 15px;
 }

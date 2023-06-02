@@ -27,8 +27,8 @@
     padding: 2%;
     margin-bottom: 30px;
     border-radius: 20px;
-    height: 140px!important;
-    width: 140px!important;
+    height: 170px!important;
+    width: 170px!important;
 }
 
 #AllCollections .card-collection h2, #AllCollections .card-collection p{
@@ -62,7 +62,7 @@
     justify-content: center;
     align-items: center;
     height: 90px;
-    min-width: 163px;
+    min-width: 173px;
     border-radius: 20px;
     background:none;
     border: 3px solid rgb(26, 32, 39);

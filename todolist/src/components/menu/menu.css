@@ -7,10 +7,22 @@
     min-width: 260px;
     min-height: 100vh;
     z-index: 0;
+    font-weight: 600;
 }
 
 #menu .container{
-    width: 80%;
+    width: 100%;
     min-width: 208px;
     margin: auto;
+}
+
+#menu h5{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#menu a{
+    text-decoration: none;
+    color: white;
 }
