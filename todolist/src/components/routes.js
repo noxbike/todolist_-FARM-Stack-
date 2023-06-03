@@ -1,6 +1,6 @@
-import AllCollections from "./collections/AllCollections";
-import Dashboard from "./dashboard/Dashboard";
-import TodoInCollection from "./todoInCollection/TodoInCollection";
+import AllCollections from "../Layout/collections/AllCollections";
+import Dashboard from "../Layout/dashboard/Dashboard";
+import TodoInCollection from "../Layout/todoInCollection/TodoInCollection";
 
 export const routes = [
     {

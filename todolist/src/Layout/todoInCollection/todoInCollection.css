@@ -1,0 +1,17 @@
+#TodoInCollection{
+    padding-top: 50px;
+    font-weight: 600;
+    text-align: left;
+}
+
+
+
+#TodoInCollection .container-todo{
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#TodoInCollection .list{
+    margin-top: 40px;
+}

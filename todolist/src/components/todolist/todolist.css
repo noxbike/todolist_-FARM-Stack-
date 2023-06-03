@@ -1,0 +1,27 @@
+#todolist .todo{
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 6px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+#todolist .check{
+    height: 28px;
+    width: 28px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 6px;
+}
+
+
+#todolist .detail p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#todolist .detail p:last-child{
+    font-size: 13px;
+}

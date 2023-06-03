@@ -1,24 +1,4 @@
-#AllCollections{
-    text-align: left;
-}
-
-#AllCollections h2{
-    width: 600px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-#AllCollections .container{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 600px;
-    margin-right: auto;
-    margin-left: auto;    
-}
-
-#AllCollections .card-collection{
+#card-collection{
     display: flex;
     flex-direction: column;
     align-items: space-between;
@@ -31,23 +11,23 @@
     width: 170px!important;
 }
 
-#AllCollections .card-collection h2, #AllCollections .card-collection p{
+#card-collection h2, #card-collection p{
     margin : 5px 0;
 }
 
-#AllCollections .card-collection p{
+#card-collection p{
     color: gray;
     font-weight: 600;
     font-size: 16px;
 }
 
-#AllCollections .card-collection .collection-detail{
+#card-collection .collection-detail{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#AllCollections .collection-icon{
+.collection-icon{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +37,7 @@
     text-align: left;
 }
 
-#AllCollections .addbutton{
+.addbutton{
     display: flex;
     justify-content: center;
     align-items: center;

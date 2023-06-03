@@ -1,7 +1,24 @@
 #dashboard{
     padding-top: 50px;
     font-weight: 600;
+    overflow: auto;
+    overflow-y: overlay;
+    max-height: 94vh;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(26, 32, 39);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
 #dashboard .filter, #dashboard .welcome, #dashboard .title{
     width: 600px;
     margin-right: auto;
