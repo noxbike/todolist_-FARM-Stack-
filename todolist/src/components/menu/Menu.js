@@ -9,7 +9,11 @@ export default function Menu(props) {
     <div id="menu">
         <div className='container'>
             <h5>Collections</h5>
-            {lists.map((data) => <Link to={`/collection/${data.name}` }><Collections selected={props.selected} name={data.name} color={data.color} icon={data.icon}/></Link>)}
+            {lists.map((data) => 
+              <Link key={data.name} to={`/collection/${data.name}` }>
+                <Collections selected={props.selected} name={data.name} color={data.color} icon={data.icon}/>
+              </Link>
+            )}
         </div>
     </div>
   )

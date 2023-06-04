@@ -18,10 +18,11 @@
 }
 
 
-#todolist .detail p{
+#todolist .detail-complete p{
     margin-top: 0;
     margin-bottom: 0;
 }
-#todolist .detail p:last-child{
-    font-size: 13px;
+#todolist .detail-incomplete p{
+    margin-top: 12px;
+    margin-bottom: 12px;
 }

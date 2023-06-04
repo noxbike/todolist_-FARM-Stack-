@@ -21,9 +21,7 @@ export default function DropdownCollection(props) {
     useEffect(() => {
         let tab = [];
         for(let item in todo){
-            if(onlyTodayTodo(todo[item], props.data)){
-                tab.push(todo[item])
-            }
+            onlyTodayTodo(todo[item], props.data) && tab.push(todo[item])
         }
         let result = tab.length > 0 ? tab : null;
         return setTodolist(result);
@@ -38,14 +36,15 @@ export default function DropdownCollection(props) {
             id="panel1bh-header"
             >
                 <Typography className='head-accordion' sx={{ width: '33%', flexShrink: 0 }}>
-                    <div className="icon-collection" style={{background: `${props.data.color}`}}>{props.data.icon}</div>{props.data.name}
+                    <span className="icon-collection" style={{background: `${props.data.color}`}}>{props.data.icon}</span>
+                    {props.data.name}
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <div className='todo-list'>
                     
-                    {todolist && todolist.map(data =>
-                        <div>
+                    {todolist && todolist.map((data) =>
+                        <div key={data}>
                             <div className='check' style={{border: `4px solid ${props.data.color}`}}></div>
                             <div className='detail'>
                                 <p className='task'>{data.task}</p>

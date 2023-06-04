@@ -29,7 +29,6 @@ export default function TodoInCollection() {
     },[collection])
   return (
     <div id="TodoInCollection">
-        {console.log()}
         <Menu selected={collection}/>
         <div className='container-todo'>
             <Path collection={collection}/>

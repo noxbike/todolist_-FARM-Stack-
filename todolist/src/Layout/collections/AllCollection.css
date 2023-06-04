@@ -18,3 +18,12 @@
     margin-left: auto;    
 }
 
+#AllCollections .filter{
+    width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row;
+}
+#AllCollections .filter div{
+    margin-right: 15px;
+}
