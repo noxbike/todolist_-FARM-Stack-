@@ -1,0 +1,46 @@
+#weeklyGoal {
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+#weeklyGoal .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#weeklyGoal .icon{
+    background: rgb(235,0,205);
+    background: linear-gradient(30deg, rgba(235,0,205,1) 36%, rgba(247,242,142,1) 120%);
+    margin-right: 15px;
+    height: 35px;
+    width: 35px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#weeklyGoal .header{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#weeklyGoal .subText{
+    color: gray;
+    font-size: 0.85rem;
+}
+
+#weeklyGoal .button{
+    text-align: left;
+}
+
+#weeklyGoal .numberTaskComplete{
+    text-align: left;
+}

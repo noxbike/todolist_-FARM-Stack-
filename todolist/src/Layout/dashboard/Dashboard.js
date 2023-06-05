@@ -19,8 +19,8 @@ export default function Dashboard() {
       </div>
       <div className='filter'>
       <Stack direction="row" spacing={1}>
-        <Chip label="Daily Overview" variant={component == false ? "outlined": ""} sx={{borderRadius: '10px'}} onClick={() => setComponent(true)}/>
-        <Chip label="Statistique" variant={component == true ? "outlined": ""} sx={{borderRadius: '10px'}} onClick={() => setComponent(false)}/>
+        <Chip label="Daily Overview" variant={component === false ? "outlined": ""} sx={{borderRadius: '10px'}} onClick={() => setComponent(true)}/>
+        <Chip label="Statistique" variant={component === true ? "outlined": ""} sx={{borderRadius: '10px'}} onClick={() => setComponent(false)}/>
       </Stack>
       </div>
       {component ? 
