@@ -30,7 +30,9 @@ export default function TopBar() {
                 <SearchIcon/>
                 <NotificationsNoneIcon/>
                 <div className='picture'>
-                    <img src={picture} alt="profile"/>
+                    <Link to="/account">
+                        <img src={picture} alt="profile"/>
+                    </Link>
                 </div>
             </div>
         </div>

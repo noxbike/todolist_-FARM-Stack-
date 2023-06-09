@@ -22,7 +22,7 @@ export default function WeeklyGoal() {
         </div>
         <div className='right'>
           <p className='header subText'>Mon-Fri</p>
-          <CircularProgress variant='determinate' size={'7rem'} thickness={6} sx={{color: 'rgb(235,0,205)'}} value={70}/>
+          <CircularProgress variant='determinate' size={'7rem'} thickness={7} sx={{color: 'rgb(235,0,205)'}} value={70}/>
         </div>
       </div>
       <div className='button'>

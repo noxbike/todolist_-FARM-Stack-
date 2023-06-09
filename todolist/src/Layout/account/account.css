@@ -1,0 +1,50 @@
+#account .content {
+    padding: 30px;
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+}
+
+#account .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+#account .row p:first-child{
+    color: rgba(128, 128, 128, 0.797);
+}
+
+#account .row p:last-child{
+    font-weight: bolder;
+}
+
+#account .profilePicture{
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    margin-bottom: 40px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+#account .profilePicture img{
+    width: 80px;
+    border-radius: 50px;
+    margin-right: 15px;
+    
+}
+
+#account .Sign-out {
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+
+}
