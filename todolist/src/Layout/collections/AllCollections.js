@@ -1,13 +1,14 @@
 import React from 'react'
 import "./AllCollection.css"
-import AddIcon from '@mui/icons-material/Add';
-import { lists } from "../../components/data/datatest.js";
 import Path from '../../components/path/Path'
 import CardCollection from '../../components/cardCollection/CardCollection';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import AddCollection from '../../components/addCollection/AddCollection';
+import { useSelector } from 'react-redux';
 
 export default function AllCollections() {
+    const lists = useSelector(state => state.list.value);
   return(
     <div id="AllCollections">
         <Path collection='Collections'/>
@@ -21,9 +22,7 @@ export default function AllCollections() {
             {lists.map((data) => 
                 <CardCollection key={data.name} data={data}/>
             )}
-            <div className='addbutton'>
-                <AddIcon/>
-            </div>
+            <AddCollection/>
         </div>
     </div>
   )

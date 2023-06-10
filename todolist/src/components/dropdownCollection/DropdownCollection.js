@@ -7,12 +7,13 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom'
-import { todo } from '../data/datatest'
 import { day, onlyTodayTodo } from '../date/date'
+import { useSelector } from 'react-redux';
 
 export default function DropdownCollection(props) {
     const [expanded, setExpanded] = useState(false);
     const [todolist, setTodolist] = useState(null);
+    const todoList = useSelector(state => state.todolist.value)
 
     const handleChange = (panel) => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
@@ -20,11 +21,13 @@ export default function DropdownCollection(props) {
 
     useEffect(() => {
         let tab = [];
-        for(let item in todo){
-            onlyTodayTodo(todo[item], props.data) && tab.push(todo[item])
+        if(todoList) {
+            for(let item in todoList){
+                onlyTodayTodo(todoList[item], props.data) && tab.push(todoList[item])
+            }
+            let result = tab.length > 0 ? tab : null;
+            return setTodolist(result);
         }
-        let result = tab.length > 0 ? tab : null;
-        return setTodolist(result);
     },[])
 
   return (

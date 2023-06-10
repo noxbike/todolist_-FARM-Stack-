@@ -2,9 +2,26 @@
     padding-top: 50px;
     font-weight: 600;
     text-align: left;
+    max-height: 94vh;
+    overflow: auto;
+    overflow-y: overlay;
 }
 
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(26, 32, 39);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
 
 #TodoInCollection .container-todo{
     width: 600px;

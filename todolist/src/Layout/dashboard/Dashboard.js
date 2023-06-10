@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import "./dashboard.css"
 import Menu from '../../components/menu/Menu'
-import { lists } from '../../components/data/datatest'
+import { useSelector } from 'react-redux'
 import DropdownCollection from '../../components/dropdownCollection/DropdownCollection'
 import Path from '../../components/path/Path'
 import Chip from '@mui/material/Chip';
@@ -10,6 +10,7 @@ import Statistique from '../../components/statistique/Statistique'
 
 export default function Dashboard() {
   const [component, setComponent] = useState(true)
+  const lists = useSelector(state => state.list.value);
   return (
     <div id='dashboard'>
       <Menu/>

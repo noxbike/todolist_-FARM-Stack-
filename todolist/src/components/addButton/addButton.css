@@ -1,9 +1,10 @@
-#addButton {
+#addButton .button {
     display: flex;
     flex-direction: row;
     align-items: center;
     border: 1px solid rgba(128, 128, 128, 0.61);
     border-radius: 30px;
+    cursor: pointer;
 }
 #addButton .icon{
     width: 25px;

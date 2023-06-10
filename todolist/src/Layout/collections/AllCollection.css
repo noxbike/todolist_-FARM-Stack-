@@ -27,3 +27,7 @@
 #AllCollections .filter div{
     margin-right: 15px;
 }
+
+#AllCollections .addbutton{
+    cursor: pointer;
+}

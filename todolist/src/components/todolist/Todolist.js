@@ -2,13 +2,14 @@ import React from 'react'
 import './todolist.css'
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { day, colorDate } from '../date/date'
+import CheckIcon from '@mui/icons-material/Check';
 
 export default function Todolist(props) {
   return (
     <div id='todolist'>
         {props.data && props.data.map( (todo, index) => 
             <div key={index} className='todo'>
-                <div style={{border:`4px solid ${props.color}`}} className='check'></div>
+                <div style={{border:`4px solid ${props.color}`, background: `${todo.complete ? props.color: 'none'}`}} className='check'>{todo.complete && <CheckIcon sx={{color:'black'}}/>}</div>
                 {!props.done && 
                     <div className='detail-complete'>
                         <p>{todo.task}</p>

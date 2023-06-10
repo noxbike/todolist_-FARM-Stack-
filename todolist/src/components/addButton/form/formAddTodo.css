@@ -1,0 +1,9 @@
+#modalAdd .button button{
+    padding: 10px 20px;
+    background-color: rgb(86, 86, 86);
+    color: white;
+    border-radius: 6px;
+    font-weight: bolder;
+    font-size: medium;
+    cursor: pointer;
+}

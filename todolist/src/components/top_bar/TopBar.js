@@ -7,7 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ArticleIcon from '@mui/icons-material/Article';
-const picture = "https://newprofilepic2.photo-cdn.net//assets/images/article/profile.jpg";
+import Profile from './profile/Profile';
 
 export default function TopBar() {
     return (
@@ -29,11 +29,7 @@ export default function TopBar() {
                 </div>
                 <SearchIcon/>
                 <NotificationsNoneIcon/>
-                <div className='picture'>
-                    <Link to="/account">
-                        <img src={picture} alt="profile"/>
-                    </Link>
-                </div>
+                <Profile/>
             </div>
         </div>
     )

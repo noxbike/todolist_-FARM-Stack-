@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom'
 import Menu from '../../components/menu/Menu'
 import Path from '../../components/path/Path'
 import AddButton from '../../components/addButton/AddButton'
-import { todo, lists } from '../../components/data/datatest'
+import { lists } from '../../components/data/datatest'
 import Todolist from '../../components/todolist/Todolist'
+import { useSelector } from 'react-redux'
 
 
 export default function TodoInCollection() {
@@ -13,18 +14,22 @@ export default function TodoInCollection() {
     const [incomplete, setIncomplete] = useState([])
     const collection = useParams().collection
     const item = lists.find(data => data.name === collection)
+    const todolist = useSelector(state => state.todolist.value)
     
     
     useEffect(() => {
+      if(todolist){
       let complete = []
       let incomplete = []
-      for(const item in todo){
-        if(todo[item].lists === collection){
-          todo[item].complete && complete.push(todo[item]) 
-          !todo[item].complete && incomplete.push(todo[item])
+      for(const item in todolist){
+        if(todolist[item].lists === collection){
+          todolist[item].complete && complete.push(todolist[item]) 
+          !todolist[item].complete && incomplete.push(todolist[item])
         }
        setComplete(complete)
        setIncomplete(incomplete)
+      }
+      
       }
     },[collection])
   return (

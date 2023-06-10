@@ -8,11 +8,23 @@ export const lists = [
     { name: "Grocery", color: "purple", icon: <LocalGroceryStoreIcon/>}
 ];
 
-export const todo = [
-    {task: "laver la voiture", description: "je dois laver l'exterieur de la voiture", lists: "Personal", tag: "", when: 'Sun Jun 04 2023 14:00:00 GMT+0400 (heure du Golfe)', complete: false },
-    {task: "laver la voiture", description: "je dois laver l'exterieur de la voiture", lists: "Personal", tag: "", when: "Sat Jun 03 2023 12:00:00 GMT+0400 (heure du Golfe)", complete: false },
-    {task: "Apprendre c++", description: "je dois devenir un dieu du code", lists: "Work", tag: "", when: "Sat Jun 03 2023 14:00:00 GMT+0400 (heure du Golfe)", complete: false},
-    {task: "laver la voiture", description: "je dois laver l'exterieur de la voiture", lists: "Personal", tag: "", when: "Sat Jun 03 2023 10:00:00 GMT+0400 (heure du Golfe)", complete: false },
-    {task: "Faire les courses", description: "je dois faire les course chez carrefour", lists: "Grocery", tag: "", when: "Fri Jun 02 2023 14:45:00 GMT+0400 (heure du Golfe)", complete: true },
-    {task: "Faire les courses", description: "Acheter de la viande", lists: "Grocery", tag: "", when: "Fri Jun 07 2023 14:45:00 GMT+0400 (heure du Golfe)", complete: false }
-]
+//generate a list of todos
+export const datatodo = (max) => {
+    let today = new Date();
+    let month = today.getMonth();
+    let day = today.getDate();
+    let data = []
+    for( let i = 0; i < max; i++){
+        let jour = Math.floor(Math.random() * (31 - 0) + 0);
+        let obj = {
+            task: `task #${i}`,
+            description: `lorem ipsum dolor sit amet, consectetur adipiscing`,
+            lists: `${lists[Math.floor(Math.random() * 3)].name}`,
+            tags: `task#${Math.floor(Math.random()*10)}`,
+            when: new Date(2023, month, jour, Math.floor(Math.random() * (20-7) + 7) ),
+            complete: jour < day - 1 ? true:false,
+        }
+        data.push(obj)
+    }
+    return data
+}

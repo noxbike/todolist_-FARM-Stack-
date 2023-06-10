@@ -1,10 +1,11 @@
 import React from 'react'
 import "./menu.css"
 import Collections from './Collections'
-import {lists} from '../data/datatest.js';
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 export default function Menu(props) {
+  const lists = useSelector(state => state.list.value);
   return (
     <div id="menu">
         <div className='container'>

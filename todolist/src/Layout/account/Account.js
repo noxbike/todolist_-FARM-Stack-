@@ -2,7 +2,6 @@ import React from 'react'
 import './account.css'
 import Menu from '../../components/menu/Menu'
 import Path from '../../components/path/Path'
-import Button from '@mui/material/Button';
 const picture = "https://newprofilepic2.photo-cdn.net//assets/images/article/profile.jpg";
 
 export default function Account() {
@@ -21,7 +20,7 @@ export default function Account() {
                     <p>Mickael Morel</p>
                 </div>
                 <div>
-                    <Button variant="contained">Edit</Button>
+                    <button>Edit</button>
                 </div>
             </div>
             <div className='row'>
@@ -30,7 +29,7 @@ export default function Account() {
                     <p>noxbike@gmail.com</p>
                 </div>
                 <div>
-                    <Button variant="contained">Edit</Button>
+                    <button>Edit</button>
                 </div>
             </div>
             <div className='row'>
@@ -39,13 +38,13 @@ export default function Account() {
                     <p>***********</p>
                 </div>
                 <div>
-                    <Button variant="contained">Change</Button>
+                    <button>Change</button>
                 </div>
             </div>
         </div>
         <div className='Sign-out'>
                 <div>
-                    <Button variant="contained">Sign Out</Button>
+                    <button>Sign Out</button>
                 </div>
         </div>
     </div>

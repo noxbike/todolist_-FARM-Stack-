@@ -7,6 +7,15 @@
     border-radius: 12px;
 }
 
+#account button {
+    padding: 10px 20px;
+    background-color: rgb(86, 86, 86);
+    color: white;
+    border-radius: 6px;
+    font-weight: bolder;
+    font-size: medium;
+}
+
 #account .row{
     display: flex;
     flex-direction: row;
@@ -21,6 +30,7 @@
 
 #account .row p:last-child{
     font-weight: bolder;
+    font-size: medium;
 }
 
 #account .profilePicture{
