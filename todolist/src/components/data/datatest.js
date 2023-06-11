@@ -17,14 +17,22 @@ export const datatodo = (max) => {
     for( let i = 0; i < max; i++){
         let jour = Math.floor(Math.random() * (31 - 0) + 0);
         let obj = {
+            id: i,
             task: `task #${i}`,
             description: `lorem ipsum dolor sit amet, consectetur adipiscing`,
             lists: `${lists[Math.floor(Math.random() * 3)].name}`,
             tags: `task#${Math.floor(Math.random()*10)}`,
-            when: new Date(2023, month, jour, Math.floor(Math.random() * (20-7) + 7) ),
+            when: `${new Date(2023, month, jour, Math.floor(Math.random() * (20-7) + 7) )}`,
             complete: jour < day - 1 ? true:false,
         }
         data.push(obj)
     }
     return data
+}
+
+export const user = {
+    name: 'John Smith',
+    email: 'john@example.com', 
+    password: 'fakepassword', 
+    profile:"https://newprofilepic2.photo-cdn.net//assets/images/article/profile.jpg"
 }

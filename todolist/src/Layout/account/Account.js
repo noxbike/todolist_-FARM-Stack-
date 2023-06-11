@@ -2,22 +2,23 @@ import React from 'react'
 import './account.css'
 import Menu from '../../components/menu/Menu'
 import Path from '../../components/path/Path'
-const picture = "https://newprofilepic2.photo-cdn.net//assets/images/article/profile.jpg";
+import { useSelector } from 'react-redux'
 
 export default function Account() {
+    const user = useSelector(state => state.user.value);
   return (
     <div id="account">
         <Menu/>
         <Path collection='Account'/>
         <div className='profilePicture'>
-            <img src={picture} alt="profile" />
-            <h2>Mickael Morel</h2>
+            <img src={user.profile} alt="profile" />
+            <h2>{user.name}</h2>
         </div>
         <div className='content'>
             <div className='row'>
                 <div>
                     <p>Name</p>
-                    <p>Mickael Morel</p>
+                    <p>{user.name}</p>
                 </div>
                 <div>
                     <button>Edit</button>
@@ -26,7 +27,7 @@ export default function Account() {
             <div className='row'>
                 <div>
                     <p>Email</p>
-                    <p>noxbike@gmail.com</p>
+                    <p>{user.email}</p>
                 </div>
                 <div>
                     <button>Edit</button>

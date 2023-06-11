@@ -6,21 +6,22 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addTodolist } from '../../../features/todolist/todolistSlice';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import './formAddTodo.css'
 
-export default function ModalAddTodo(props) {
+export default function FormAddTodo(props) {
     const dispatch = useDispatch();
+    const data = useSelector(state => state.list.value);
     const [todo, setTodo] = useState({
         task: '',
         description: '',
         lists: '',
         tag: '',
-        when: dayjs('2022-04-17T15:30'),
+        when: dayjs(new Date()),
         complete: false
     })
     const [list, setlist] = useState();
@@ -42,7 +43,6 @@ export default function ModalAddTodo(props) {
     e.preventDefault();
     e.stopPropagation();
     dispatch(addTodolist(todo));
-    props.setOpen(false);
   }
 
   return (
@@ -68,9 +68,11 @@ export default function ModalAddTodo(props) {
                 value={list}
                 onChange={event => handleChange(event.target.value, 'lists')}
             >
-                <MenuItem value='Work'>Work</MenuItem>
-                <MenuItem value='Grocery'>Grocery</MenuItem>
-                <MenuItem value='Personal'>Personal</MenuItem>
+                {
+                    data.map(list => 
+                        <MenuItem value={list.name}>{list.name}</MenuItem>
+                    )
+                }
             </Select>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer

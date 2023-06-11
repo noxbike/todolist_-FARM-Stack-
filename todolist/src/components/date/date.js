@@ -7,7 +7,7 @@ export const day = (date) => {
     let data = new Date(date);
     if(today.getFullYear() === data.getFullYear() && today.getMonth() === data.getMonth()){
         if(today.getDate() === data.getDate()){
-            return(`Today ${data.getHours()}:${data.getMinutes() < 10 && '0'}${data.getMinutes()}`)
+            return(`Today ${data.getHours() < 10 ? `0${data.getHours()}`: data.getHours()}:${data.getMinutes() < 10 ? `0${data.getMinutes()}`: data.getMinutes()}`)
         }
         if(data.getDate() === (today.getDate()+1)){
             return(`Tomorrow`)

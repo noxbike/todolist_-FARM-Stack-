@@ -15,27 +15,30 @@ export default function CardCollection(props) {
             }
             setData(tab.length > 0 ? tab : null)
         }
-    },[])
+    },[props.data.name, todolist])
+
     const filter = () => {
         let count = 0
         data && data.filter(todo => todo.complete === true && count++)
         return count;
     }
+
     const percentageTodoDone = () => {
-        return (todolist && 100/todolist.length)*filter()
+        return (data && 100/data.length)*filter()
     }
-  return (
-    <div id='card-collection'>
-        <div className="collection-icon" style={{background: `${props.data.color}`}}>
-            {props.data.icon}
-        </div>
-        <div className='collection-bottom'>
-            <h2>{props.data.name}</h2>
-            <div className='collection-detail'>
-                <p>{filter()}/{data ? data.length : '0'} done</p>
-                <CircularProgress variant="determinate" thickness={7} size={"1.5rem"} sx={{color: props.data.color}} value={percentageTodoDone()} />
+
+    return (
+        <div id='card-collection'>
+            <div className="collection-icon" style={{background: `${props.data.color}`}}>
+                {props.data.icon}
+            </div>
+            <div className='collection-bottom'>
+                <h2>{props.data.name}</h2>
+                <div className='collection-detail'>
+                    <p>{filter()}/{data ? data.length : '0'} done</p>
+                    <CircularProgress variant="determinate" thickness={7} size={"1.5rem"} sx={{color: props.data.color}} value={percentageTodoDone()} />
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }

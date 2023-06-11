@@ -4,34 +4,31 @@ import { useParams } from 'react-router-dom'
 import Menu from '../../components/menu/Menu'
 import Path from '../../components/path/Path'
 import AddButton from '../../components/addButton/AddButton'
-import { lists } from '../../components/data/datatest'
 import Todolist from '../../components/todolist/Todolist'
 import { useSelector } from 'react-redux'
-
 
 export default function TodoInCollection() {
     const [ complete, setComplete ] = useState([])
     const [incomplete, setIncomplete] = useState([])
     const collection = useParams().collection
-    const item = lists.find(data => data.name === collection)
     const todolist = useSelector(state => state.todolist.value)
-    
-    
+    const lists = useSelector(state => state.list.value);
+    const item = lists.find(data => data.name === collection)
+   
     useEffect(() => {
       if(todolist){
-      let complete = []
-      let incomplete = []
-      for(const item in todolist){
-        if(todolist[item].lists === collection){
-          todolist[item].complete && complete.push(todolist[item]) 
-          !todolist[item].complete && incomplete.push(todolist[item])
+        let complete = []
+        let incomplete = []
+        for(const item in todolist){
+          if(todolist[item].lists === collection){
+            todolist[item].complete && complete.push(todolist[item]) 
+            !todolist[item].complete && incomplete.push(todolist[item])
+          }
         }
-       setComplete(complete)
-       setIncomplete(incomplete)
+        setComplete(complete)
+        setIncomplete(incomplete)
       }
-      
-      }
-    },[collection])
+    },[collection, todolist])
   return (
     <div id="TodoInCollection">
         <Menu selected={collection}/>
@@ -39,9 +36,9 @@ export default function TodoInCollection() {
             <Path collection={collection}/>
             <AddButton/>
             {incomplete.length > 0 && <p className='list'>Tasks - {incomplete.length}</p>}
-            <Todolist done={false} color={item['color']} data={incomplete}/>
+            <Todolist done={false} color={item.color} data={incomplete}/>
             {complete.length > 0 && <p className='list'>Completed - {complete.length}</p>}
-            <Todolist  done={true} color={item['color']} data={complete}/>
+            <Todolist done={true} color={item.color} data={complete}/>
         </div>
     </div>
   )

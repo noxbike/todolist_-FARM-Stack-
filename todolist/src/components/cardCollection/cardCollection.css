@@ -13,6 +13,7 @@
 
 #card-collection h2, #card-collection p{
     margin : 5px 0;
+    width: 100%;
 }
 
 #card-collection p{

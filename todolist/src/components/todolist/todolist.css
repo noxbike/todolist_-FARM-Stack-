@@ -21,11 +21,22 @@
 }
 
 
-#todolist .detail-complete p{
+#todolist .detail-complete p.hours, #todolist .detail-incomplete p.hours{
     margin-top: 0;
     margin-bottom: 0;
 }
-#todolist .detail-incomplete p{
-    margin-top: 12px;
-    margin-bottom: 12px;
+
+#todolist .todo{
+   height: 59.97px;
+}
+
+#todolist .icon:hover{
+   background-color: rgb(0, 141, 222);
+   border-radius: 6px;
+   cursor: pointer;
+}
+
+#todolist .detail-incomplete p, #todolist .detail-complete p{
+    margin-top: 0px;
+    margin-bottom: 0px;
 }

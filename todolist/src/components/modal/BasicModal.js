@@ -10,6 +10,7 @@ const style = {
   width: 530,
   bgcolor: '#1e1e1e',
   border: '2px solid #1e1e1e',
+  borderRadius: '12px',
   boxShadow: 24,
   p: 4,
 };

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { useSelector } from 'react-redux';
 import './chart.css'
 import BarChartIcon from '@mui/icons-material/BarChart';
 import {
@@ -17,21 +18,57 @@ ChartJS.register(
 );
 
 const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sathurday', 'Sunday'];
-const randomChart = [1, 5, 4, 20, 19, 4, 0]
-const data = {
-  labels: labels,
-  datasets: [{
-    data: randomChart,
-    backgroundColor: [
-      "rgb(235,0,205)",
-    ],
-    borderWidth: 20,
-    borderRadius: 27 ,
-    borderColor: "rgba(255,255,255, 0)",
-  }]
-};
 
 export default function Chart() {
+  const todolist = useSelector(state => state.todolist.value);
+  const [completedTasksCountByDay, setCompletedTasksCountByDay] = useState();
+  
+  const data = {
+    labels: labels,
+    datasets: [{
+      data: completedTasksCountByDay,
+      backgroundColor: [
+        "rgb(235,0,205)",
+      ],
+      borderWidth: 20,
+      borderRadius: 27 ,
+      borderColor: "rgba(255,255,255, 0)",
+    }]
+  };
+
+  useEffect(() => {
+    const countTasksByDay = () => {
+      const countByDay = {
+        Monday: 0,
+        Tuesday: 0,
+        Wednesday: 0,
+        Thursday: 0,
+        Friday: 0,
+        Saturday: 0,
+        Sunday: 0
+      };
+
+      todolist.forEach(item => {
+        if (item.complete && item.when) {
+          const completionDate = new Date(item.when);
+          const dayOfWeek = completionDate.toLocaleDateString('en-US', { weekday: 'long' });
+
+          if (countByDay.hasOwnProperty(dayOfWeek)) {
+            countByDay[dayOfWeek]++;
+          }
+        }
+      });
+      const tab = []
+      for(let item in countByDay){
+        tab.push(countByDay[item])
+      }
+
+      setCompletedTasksCountByDay(tab);
+    };
+
+    countTasksByDay();
+  }, [todolist]);
+
   return (
     <div id='chart'>
         <div className='header'>

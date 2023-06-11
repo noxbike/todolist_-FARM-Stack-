@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 export default function DropdownCollection(props) {
     const [expanded, setExpanded] = useState(false);
     const [todolist, setTodolist] = useState(null);
-    const todoList = useSelector(state => state.todolist.value)
+    const todoLists = useSelector(state => state.todolist.value)
 
     const handleChange = (panel) => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
@@ -21,14 +21,14 @@ export default function DropdownCollection(props) {
 
     useEffect(() => {
         let tab = [];
-        if(todoList) {
-            for(let item in todoList){
-                onlyTodayTodo(todoList[item], props.data) && tab.push(todoList[item])
+        if(todoLists) {
+            for(let item in todoLists){
+                onlyTodayTodo(todoLists[item], props.data) && tab.push(todoLists[item])
             }
             let result = tab.length > 0 ? tab : null;
             return setTodolist(result);
         }
-    },[])
+    },[todoLists, props.data])
 
   return (
     <div id='Accordion'>
@@ -47,7 +47,7 @@ export default function DropdownCollection(props) {
                 <div className='todo-list'>
                     
                     {todolist && todolist.map((data) =>
-                        <div key={data}>
+                        <div key={data.id}>
                             <div className='check' style={{border: `4px solid ${props.data.color}`}}></div>
                             <div className='detail'>
                                 <p className='task'>{data.task}</p>

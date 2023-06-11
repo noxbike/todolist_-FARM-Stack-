@@ -7,6 +7,7 @@ import Path from '../../components/path/Path'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Statistique from '../../components/statistique/Statistique'
+import Welcome from '../../components/welcome/Welcome'
 
 export default function Dashboard() {
   const [component, setComponent] = useState(true)
@@ -16,7 +17,7 @@ export default function Dashboard() {
       <Menu/>
       <Path collection='Dashboard'/>
       <div className='welcome'>
-        <h1>Goodmorning</h1>
+        <Welcome/>
       </div>
       <div className='filter'>
       <Stack direction="row" spacing={1}>
