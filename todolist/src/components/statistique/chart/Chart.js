@@ -17,12 +17,34 @@ ChartJS.register(
   Title,
 );
 
-const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sathurday', 'Sunday'];
+const labels = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sathurday'];
 
 export default function Chart() {
   const todolist = useSelector(state => state.todolist.value);
   const [completedTasksCountByDay, setCompletedTasksCountByDay] = useState();
   
+  
+  useEffect(() => {
+      let today = new Date();
+      let day = today.getDay();
+      let monday = new Date().setDate(today.getDate() - day);
+      monday = new Date(monday)
+      monday.setHours(0)
+      monday.setMinutes(0)
+      let tab = [0, 0, 0, 0, 0, 0, 0]
+          
+      for(let item in todolist){
+        let dateItem = new Date(todolist[item].dateCompletion)
+        let dayItem = dateItem.getDay();
+        if(todolist[item].complete){
+          if(dateItem >= monday && dateItem <= today){
+                  tab[dayItem]++
+              } 
+          }
+        }
+        setCompletedTasksCountByDay(tab);
+  }, [todolist]);
+
   const data = {
     labels: labels,
     datasets: [{
@@ -35,39 +57,6 @@ export default function Chart() {
       borderColor: "rgba(255,255,255, 0)",
     }]
   };
-
-  useEffect(() => {
-    const countTasksByDay = () => {
-      const countByDay = {
-        Monday: 0,
-        Tuesday: 0,
-        Wednesday: 0,
-        Thursday: 0,
-        Friday: 0,
-        Saturday: 0,
-        Sunday: 0
-      };
-
-      todolist.forEach(item => {
-        if (item.complete && item.when) {
-          const completionDate = new Date(item.when);
-          const dayOfWeek = completionDate.toLocaleDateString('en-US', { weekday: 'long' });
-
-          if (countByDay.hasOwnProperty(dayOfWeek)) {
-            countByDay[dayOfWeek]++;
-          }
-        }
-      });
-      const tab = []
-      for(let item in countByDay){
-        tab.push(countByDay[item])
-      }
-
-      setCompletedTasksCountByDay(tab);
-    };
-
-    countTasksByDay();
-  }, [todolist]);
 
   return (
     <div id='chart'>

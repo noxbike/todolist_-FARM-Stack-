@@ -12,6 +12,7 @@ export const todolistSlice = createSlice({
             for(let key in tab){
                 if(tab[key].id === action.payload){
                     tab[key].complete = true;
+                    tab[key].dateCompletion = new Date();
                 }
             }
             state.value = tab;

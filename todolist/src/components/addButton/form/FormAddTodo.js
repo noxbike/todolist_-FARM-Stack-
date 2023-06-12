@@ -12,10 +12,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import './formAddTodo.css'
+import { useParams } from 'react-router-dom';
 
 export default function FormAddTodo(props) {
     const dispatch = useDispatch();
+    const collection = useParams().collection;
     const data = useSelector(state => state.list.value);
+    const [list, setlist] = useState(collection ? collection: 'Work');
     const [todo, setTodo] = useState({
         task: '',
         description: '',
@@ -24,7 +27,6 @@ export default function FormAddTodo(props) {
         when: dayjs(new Date()),
         complete: false
     })
-    const [list, setlist] = useState();
 
   const handleChange = (value, key) => {
     let tab = todo;
@@ -43,6 +45,7 @@ export default function FormAddTodo(props) {
     e.preventDefault();
     e.stopPropagation();
     dispatch(addTodolist(todo));
+    props.setOpen(false)
   }
 
   return (

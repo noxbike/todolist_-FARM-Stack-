@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import './cardCollection.css'
+import React, { useEffect, useState } from 'react';
+import './cardCollection.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux';
 
 export default function CardCollection(props) {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState(null);
     const todolist = useSelector(state => state.todolist.value)
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export default function CardCollection(props) {
             }
             setData(tab.length > 0 ? tab : null)
         }
-    },[props.data.name, todolist])
+    },[props.data.name, todolist, props.favorite])
 
     const filter = () => {
         let count = 0

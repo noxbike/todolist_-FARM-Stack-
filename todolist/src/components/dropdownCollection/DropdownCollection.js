@@ -8,12 +8,20 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom'
 import { day, onlyTodayTodo } from '../date/date'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { completeTodolist } from '../../features/todolist/todolistSlice';
+import CheckIcon from '@mui/icons-material/Check';
+
 
 export default function DropdownCollection(props) {
     const [expanded, setExpanded] = useState(false);
     const [todolist, setTodolist] = useState(null);
     const todoLists = useSelector(state => state.todolist.value)
+    const dispatch = useDispatch();
+
+    const handleCheck = (index) => {
+        dispatch(completeTodolist(index));
+    }
 
     const handleChange = (panel) => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
@@ -48,7 +56,9 @@ export default function DropdownCollection(props) {
                     
                     {todolist && todolist.map((data) =>
                         <div key={data.id}>
-                            <div className='check' style={{border: `4px solid ${props.data.color}`}}></div>
+                            <div className='check' onClick={() => handleCheck(data.id)} style={{border: `4px solid ${props.data.color}`}}>
+                                <CheckIcon className="icon" sx={{color:`${!data.complete ? "#1e1e1e" : "black"}`}}/>
+                            </div>
                             <div className='detail'>
                                 <p className='task'>{data.task}</p>
                                 <p className='hours'>{day(data.when)}</p>

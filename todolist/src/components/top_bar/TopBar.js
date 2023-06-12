@@ -28,7 +28,7 @@ export default function TopBar() {
                 </Link>
             </div>
             <div className='right'>
-                <BasicModal open={open} setOpen={setOpen} element={<FormAddTodo />}/>
+                <BasicModal open={open} setOpen={setOpen} element={<FormAddTodo setOpen={setOpen} />}/>
                 <Button  onClick={() => setOpen(true)}>
                     <div className='addIcon'>
                         <AddIcon/>

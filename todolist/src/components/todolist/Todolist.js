@@ -31,7 +31,6 @@ export default function Todolist(props) {
                 {props.done &&  
                     <div className='detail-incomplete'>
                         <p><strike>{todo.task}</strike></p>
-                        <p className='hours' style={{color: `${colorDate(todo.when)}`}}>{day(todo.when)}</p>
                     </div>
                 }
 

@@ -3,9 +3,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 
 export const lists = [
-    { name: "Work", color: "green", icon: <MenuBookIcon/> },
-    { name: "Personal", color: "red", icon: <PersonIcon/>},
-    { name: "Grocery", color: "purple", icon: <LocalGroceryStoreIcon/>}
+    { name: "Work", color: "green", icon: <MenuBookIcon/>, favorite: false },
+    { name: "Personal", color: "red", icon: <PersonIcon/>, favorite:true},
+    { name: "Grocery", color: "purple", icon: <LocalGroceryStoreIcon/>, favorite:false},
 ];
 
 //generate a list of todos
@@ -18,12 +18,13 @@ export const datatodo = (max) => {
         let jour = Math.floor(Math.random() * (31 - 0) + 0);
         let obj = {
             id: i,
-            task: `task #${i}`,
+            task: `Task #${i}`,
             description: `lorem ipsum dolor sit amet, consectetur adipiscing`,
             lists: `${lists[Math.floor(Math.random() * 3)].name}`,
-            tags: `task#${Math.floor(Math.random()*10)}`,
-            when: `${new Date(2023, month, jour, Math.floor(Math.random() * (20-7) + 7) )}`,
+            tags: `Task#${Math.floor(Math.random()*10)}`,
+            when: `${new Date(2023, month, jour, Math.floor(Math.random() * (20-7) + 7))}`,
             complete: jour < day - 1 ? true:false,
+            dateCompletion: null,
         }
         data.push(obj)
     }

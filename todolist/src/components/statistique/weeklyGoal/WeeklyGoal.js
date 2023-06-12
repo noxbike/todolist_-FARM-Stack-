@@ -9,21 +9,31 @@ import { useSelector } from 'react-redux';
 export default function WeeklyGoal() {
   const [totalTasksCount, setTotalTasksCount] = useState(0);
   const [completedTasksCount, setCompletedTasksCount] = useState(0);
+  const [percentage, setPercentage] = useState(0)
   const todolist = useSelector(state => state.todolist.value);
 
   useEffect(() => {
-      const today = new Date();
-      const monday = new Date(today.setDate(today.getDate() - today.getDay() + 1));
-      
-      const totalTasks = todolist.length;
-      const completedTasks = todolist.filter(item => {
-        if(item.complete){
-            return true
-        }
-      }).length;
-      
-      setTotalTasksCount(totalTasks);
-      setCompletedTasksCount(completedTasks);
+	let today = new Date();
+	let day = today.getDay();
+	let monday = new Date().setDate(today.getDate() - day);
+	monday = new Date(monday)
+	monday.setHours(0)
+	monday.setMinutes(0)
+	let countComplete = 0;
+	let countTotal = 0;
+		
+	for(let item in todolist){
+	  let dateItem = new Date(todolist[item].dateCompletion)
+	  if(dateItem >= monday && dateItem <= today){
+		countTotal++;
+	  		if(todolist[item].complete){
+				countComplete++
+			} 
+		}
+	  }
+	  setPercentage(100/countTotal*countComplete)
+	  setCompletedTasksCount(countComplete);
+	  setTotalTasksCount(countTotal);
     
   }, [todolist]);
 
@@ -43,7 +53,8 @@ export default function WeeklyGoal() {
         </div>
         <div className='right'>
           <p className='header subText'>Mon-Fri</p>
-          <CircularProgress variant='determinate' size={'7rem'} thickness={7} sx={{color: 'rgb(235,0,205)'}} value={70}/>
+            <CircularProgress variant='determinate' size={'7rem'} thickness={7} sx={{color: 'rgb(235,0,205)'}} value={percentage}/>
+          
         </div>
       </div>
       <div className='button'>

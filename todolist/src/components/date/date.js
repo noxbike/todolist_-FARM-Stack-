@@ -1,4 +1,4 @@
-const weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const weekday = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const month = ["Jan", "Feb", "Mar", "Apr", "May", "jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // show tomorrow, today, or yesterday under todolist if it's almost reaching the deadline
@@ -16,8 +16,8 @@ export const day = (date) => {
             return(`Yesterday`)
         }
        
-        if(data.getDay() > today.getDay()+1 && data.getDay() < today.getDay()+6){
-            return weekday[data.getDay()-1];
+        if(data.getDate() > today.getDate()+1 && data.getDate() < today.getDate()+7){
+            return weekday[data.getDay()];
         }
     }
     if(data.getDate() < today.getDate()-1 || data.getMonth()!== today.getMonth())
@@ -25,7 +25,7 @@ export const day = (date) => {
         return ("")
     }
     return `${weekday[data.getDay()]} ${data.getDate()} ${month[data.getMonth()]}`;
-  }
+}
 
 // color date under todolist
 export const colorDate = (date) => {
@@ -35,10 +35,10 @@ export const colorDate = (date) => {
         if(data.getDate() === (today.getDate()-1)){
             return("gray")
         }
-        if(data.getDate() <= today.getDate()+5){
+        if(data.getDate() > (today.getDate()-1) && data.getDate() < (today.getDate()+7)){
             return("orange")
         }
-        if(data.getDate() >= (today.getDate()+6)){
+        if(data.getDate() >= (today.getDate()+7)){
             return("green")
         }
     }

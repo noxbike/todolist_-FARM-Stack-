@@ -16,7 +16,11 @@
 
 #top_bar a{
     text-decoration: none;
-    color: white;
+    color: rgb(133, 133, 133);
+}
+#top_bar a:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 
 #top_bar .left, #top_bar .right{
