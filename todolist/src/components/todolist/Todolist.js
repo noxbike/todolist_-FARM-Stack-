@@ -3,22 +3,32 @@ import './todolist.css'
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { day, colorDate } from '../date/date'
 import CheckIcon from '@mui/icons-material/Check';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { completeTodolist } from '../../features/todolist/todolistSlice';
 
 
 export default function Todolist(props) {
     const dispatch = useDispatch();
+    const collections = useSelector(state => state.list.value);
 
     const handleChange = (index) => {
         dispatch(completeTodolist(index));
       }
+
+    const getColor = (item) => {
+        for(let collection in collections){
+            if(item === collections[collection].name){
+                return collections[collection].color;
+            }
+        }
+    }
+
   return (
     <div id='todolist'>
         {props.data && props.data.map( (todo, index) => 
             <div key={index} className='todo'>
 
-                <div className={`check`} onClick={() => handleChange(todo.id)} style={{border:`4px solid ${props.color}`, background: `${todo.complete && props.color}`}}>
+                <div className={`check`} onClick={() => handleChange(todo.id)} style={{border:`4px solid ${getColor(todo.lists)}`, background: `${todo.complete && getColor(todo.lists)}`}}>
                         <CheckIcon className="icon" sx={{color:`${!todo.complete ? "#1e1e1e" : "black"}`}}/>
                 </div>
 

@@ -12,8 +12,6 @@ export default function TodoInCollection() {
     const [incomplete, setIncomplete] = useState([])
     const collection = useParams().collection
     const todolist = useSelector(state => state.todolist.value)
-    const lists = useSelector(state => state.list.value);
-    const item = lists.find(data => data.name === collection)
    
     useEffect(() => {
       if(todolist){
@@ -36,9 +34,9 @@ export default function TodoInCollection() {
             <Path collection={collection}/>
             <AddButton/>
             {incomplete.length > 0 && <p className='list'>Tasks - {incomplete.length}</p>}
-            <Todolist done={false} color={item.color} data={incomplete}/>
+            <Todolist done={false} data={incomplete}/>
             {complete.length > 0 && <p className='list'>Completed - {complete.length}</p>}
-            <Todolist done={true} color={item.color} data={complete}/>
+            <Todolist done={true} data={complete}/>
         </div>
     </div>
   )

@@ -1,0 +1,9 @@
+#formSearch{
+    max-height: 600px;
+}
+
+#formSearch .data{
+    overflow-y: auto;
+    max-height: 400px;
+    min-height: 399px;
+}

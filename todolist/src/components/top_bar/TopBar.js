@@ -11,6 +11,7 @@ import Profile from './profile/Profile';
 import BasicModal from '../modal/BasicModal';
 import FormAddTodo from '../addButton/form/FormAddTodo'
 import { Button } from '@mui/material';
+import Search from '../search/Search';
 
 export default function TopBar() {
     const [open, setOpen] = useState(false);
@@ -35,7 +36,7 @@ export default function TopBar() {
                     </div>
                 </Button>
                 <Button>
-                    <SearchIcon/>
+                    <Search/>
                 </Button>
                 <Button>
                     <NotificationsNoneIcon/>
