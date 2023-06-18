@@ -6,11 +6,11 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import { useSelector } from 'react-redux';
 
-export default function WeeklyGoal() {
-  const [totalTasksCount, setTotalTasksCount] = useState(0);
+export default function WeeklyGoal(props) {
   const [completedTasksCount, setCompletedTasksCount] = useState(0);
   const [percentage, setPercentage] = useState(0)
   const todolist = useSelector(state => state.todolist.value);
+  const totalcount = useSelector(state => state.settings.value);
 
   useEffect(() => {
 	let today = new Date();
@@ -20,20 +20,17 @@ export default function WeeklyGoal() {
 	monday.setHours(0)
 	monday.setMinutes(0)
 	let countComplete = 0;
-	let countTotal = 0;
 		
 	for(let item in todolist){
 	  let dateItem = new Date(todolist[item].dateCompletion)
 	  if(dateItem >= monday && dateItem <= today){
-		countTotal++;
 	  		if(todolist[item].complete){
 				countComplete++
 			} 
 		}
 	  }
-	  setPercentage(100/countTotal*countComplete)
+	  setPercentage(100/totalcount.numberOfGoal*countComplete)
 	  setCompletedTasksCount(countComplete);
-	  setTotalTasksCount(countTotal);
     
   }, [todolist]);
 
@@ -48,7 +45,7 @@ export default function WeeklyGoal() {
             <p>Weekly Goal</p>
           </div>
           <div className='numberTaskComplete'>
-            <p><span className='subText'>Goal Progress</span><br/> {completedTasksCount}/{totalTasksCount} tasks completed</p>
+            <p><span className='subText'>Goal Progress</span><br/> {completedTasksCount}/{totalcount.numberOfGoal} tasks completed</p>
           </div>
         </div>
         <div className='right'>
@@ -59,8 +56,8 @@ export default function WeeklyGoal() {
       </div>
       <div className='button'>
         <Stack direction="row" spacing={2}>
-          <Chip label="Show completed" sx={{borderRadius: '10px'}} />
-          <Chip label="Edit Goal" sx={{borderRadius: '10px'}} variant="outlined" />
+          <Chip label="Show completed" sx={{borderRadius: '10px'}} variant={`${props.view && "outlined"}`} onClick={() => props.setView(false)}/>
+          <Chip label="Edit Goal" sx={{borderRadius: '10px'}} variant={`${!props.view && "outlined"}`} onClick={() => props.setView(true)}/>
         </Stack>
       </div>
     </div>

@@ -37,3 +37,8 @@ export const user = {
     password: 'fakepassword', 
     profile:"https://newprofilepic2.photo-cdn.net//assets/images/article/profile.jpg"
 }
+
+export const settings = {
+    numberOfGoal: 20,
+    week: [0, 4]
+}
