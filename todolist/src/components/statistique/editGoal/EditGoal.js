@@ -6,14 +6,23 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import './editGoal.css'
+import { useDispatch } from 'react-redux';
+import { week } from '../../../features/settings/settingsSlice';
 
 export default function EditGoal() {
   const [numberGoal, setNumberGoal] =useState(0)
-  const [from, setFrom] = useState("Monday")
-  const [to, setTo] = useState("Sunday");
+  const [from, setFrom] = useState(0)
+  const [to, setTo] = useState(5);
+  const dispatch = useDispatch();
 
-  const onSubmit = () => {
-    
+  const onSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    let data = {
+      numberOfGoal: Number(numberGoal),
+      week: [from, to]
+    }
+    dispatch(week(data))
   }
 
   return (
@@ -34,9 +43,9 @@ export default function EditGoal() {
               value={from}
               onChange={event => setFrom(event.target.value)}
           >
-              {weekday.map(day => 
-                  <MenuItem value={day}>{day}</MenuItem>
-              )}
+            {weekday.map((day, index) => 
+                <MenuItem key={index} value={index}>{day}</MenuItem>
+            )}
           </Select>
           <InputLabel id="demo-simple-select-filled-label">To</InputLabel>
           <Select
@@ -45,9 +54,9 @@ export default function EditGoal() {
               value={to}
               onChange={event => setTo(event.target.value)}
           >
-              {weekday.map(day => 
-                  <MenuItem value={day}>{day}</MenuItem>
-              )}
+            {weekday.map((day,index) => index > from &&
+                <MenuItem key={index} value={index}>{day}</MenuItem>
+            )}
         </Select>
         <div className='input'>
           <TextField id="filled-basic" label="Goal Number" variant="filled" value={numberGoal} onChange={(e) => setNumberGoal(e.target.value)} />

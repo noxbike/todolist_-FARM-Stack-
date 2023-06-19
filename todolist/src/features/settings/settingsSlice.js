@@ -13,9 +13,7 @@ export const settingsSlice = createSlice({
             state.value = goal
         },
         week: (state, action) =>{
-            let goal = state.value
-            goal.week = action.payload;
-            state.value = goal
+            state.value = action.payload
         }
     }
 })

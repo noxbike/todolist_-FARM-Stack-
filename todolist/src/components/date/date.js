@@ -1,4 +1,5 @@
 export const weekday = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+export const shortday = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const month = ["Jan", "Feb", "Mar", "Apr", "May", "jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // show tomorrow, today, or yesterday under todolist if it's almost reaching the deadline

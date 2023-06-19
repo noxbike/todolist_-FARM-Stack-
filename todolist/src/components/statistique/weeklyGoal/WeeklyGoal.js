@@ -5,6 +5,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import { useSelector } from 'react-redux';
+import { shortday } from '../../date/date';
 
 export default function WeeklyGoal(props) {
   const [completedTasksCount, setCompletedTasksCount] = useState(0);
@@ -49,7 +50,7 @@ export default function WeeklyGoal(props) {
           </div>
         </div>
         <div className='right'>
-          <p className='header subText'>Mon-Fri</p>
+          <p className='header subText'>{shortday[totalcount.week[0]]}-{shortday[totalcount.week[1]]}</p>
             <CircularProgress variant='determinate' size={'7rem'} thickness={7} sx={{color: 'rgb(235,0,205)'}} value={percentage}/>
           
         </div>
