@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { lists } from '../../components/data/datatest'
+import { collections } from '../../components/data/datatest'
 
-export const listSlice = createSlice({
-    name: 'list',
+export const collectionsSlice = createSlice({
+    name: 'collections',
     initialState:{
-        value: lists,
+        value: collections,
     },
     reducers: {
         getLists: state => {},
-        addList: (state, action)=> {
+        addCollection: (state, action)=> {
             let tab = state.value
             tab.push(action.payload)
             state.value = tab
@@ -18,6 +18,6 @@ export const listSlice = createSlice({
     }
 })
 
-export const {getLists, addList, updateList, deleteList} = listSlice.actions
+export const {getLists, addList, updateList, deleteList} = collectionsSlice.actions
 
-export default listSlice.reducer
+export default collectionsSlice.reducer

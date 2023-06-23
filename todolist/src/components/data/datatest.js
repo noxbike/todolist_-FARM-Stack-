@@ -2,7 +2,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 
-export const lists = [
+export const collections = [
     { name: "Work", color: "green", icon: <MenuBookIcon/>, favorite: false },
     { name: "Personal", color: "red", icon: <PersonIcon/>, favorite:true},
     { name: "Grocery", color: "purple", icon: <LocalGroceryStoreIcon/>, favorite:false},
@@ -20,7 +20,7 @@ export const datatodo = (max) => {
             id: i,
             task: `Task #${i}`,
             description: `lorem ipsum dolor sit amet, consectetur adipiscing`,
-            lists: `${lists[Math.floor(Math.random() * 3)].name}`,
+            lists: `${collections[Math.floor(Math.random() * 3)].name}`,
             tags: `Task#${Math.floor(Math.random()*10)}`,
             when: `${new Date(2023, month, jour, Math.floor(Math.random() * (20-7) + 7))}`,
             complete: jour < day - 1 ? true:false,

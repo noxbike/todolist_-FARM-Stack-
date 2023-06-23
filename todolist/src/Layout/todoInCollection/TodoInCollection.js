@@ -8,35 +8,36 @@ import Todolist from '../../components/todolist/Todolist'
 import { useSelector } from 'react-redux'
 
 export default function TodoInCollection() {
-    const [ complete, setComplete ] = useState([])
-    const [incomplete, setIncomplete] = useState([])
+    const [ todoComplete, setComplete ] = useState([])
+    const [todoIncomplete, setIncomplete] = useState([])
     const collection = useParams().collection
     const todolist = useSelector(state => state.todolist.value)
    
+    // Separate all todo in two differents categories complete and incomplete
     useEffect(() => {
       if(todolist){
-        let complete = []
-        let incomplete = []
+        let todoComplete = []
+        let todoIncomplete = []
         for(const item in todolist){
           if(todolist[item].lists === collection){
-            todolist[item].complete && complete.push(todolist[item]) 
-            !todolist[item].complete && incomplete.push(todolist[item])
+            todolist[item].complete && todoComplete.push(todolist[item]) 
+            !todolist[item].complete && todoIncomplete.push(todolist[item])
           }
         }
-        setComplete(complete)
-        setIncomplete(incomplete)
+        setComplete(todoComplete)
+        setIncomplete(todoIncomplete)
       }
     },[collection, todolist])
   return (
     <div id="TodoInCollection">
-        <Menu selected={collection}/>
+        <Menu selected={ collection }/>
         <div className='container-todo'>
-            <Path collection={collection}/>
+            <Path collection={ collection }/>
             <AddButton/>
-            {incomplete.length > 0 && <p className='list'>Tasks - {incomplete.length}</p>}
-            <Todolist done={false} data={incomplete}/>
-            {complete.length > 0 && <p className='list'>Completed - {complete.length}</p>}
-            <Todolist done={true} data={complete}/>
+            { todoIncomplete.length > 0 && <p className='list'>Tasks - { todoIncomplete.length }</p> }
+            <Todolist done={false} todolists={ todoIncomplete }/>
+            { todoComplete.length > 0 && <p className='list'>Completed - { todoComplete.length }</p> }
+            <Todolist done={ true } todolists={ todoComplete }/>
         </div>
     </div>
   )

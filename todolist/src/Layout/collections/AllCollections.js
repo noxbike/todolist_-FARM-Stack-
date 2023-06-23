@@ -9,25 +9,25 @@ import { useSelector } from 'react-redux';
 
 export default function AllCollections() {
     const [favorite, setFavorite] = useState(false);
-    const lists = useSelector(state => state.list.value);
-  return(
-    <div id="AllCollections">
-        <Path collection='Collections'/>
-        <div className='filter'>
-            <Stack direction="row" spacing={1}>
-                <Chip onClick={() => setFavorite(true)} label="Favorite" variant={`${!favorite && 'outlined'}`} sx={{borderRadius: '10px'}}/>
-                <Chip onClick={() => setFavorite(false)} label="All Collections" variant={`${favorite && 'outlined'}`}sx={{borderRadius: '10px'}}/>
-            </Stack>
+    const collections = useSelector(state => state.collections.value);
+    return(
+        <div id="AllCollections">
+            <Path collection='Collections'/>
+            <div className='filter'>
+                <Stack direction="row" spacing={1}>
+                    <Chip onClick={() => setFavorite(true)} label="Favorite" variant={`${!favorite && 'outlined'}`} sx={{borderRadius: '10px'}}/>
+                    <Chip onClick={() => setFavorite(false)} label="All Collections" variant={`${favorite && 'outlined'}`}sx={{borderRadius: '10px'}}/>
+                </Stack>
+            </div>
+            <div className='container'>
+                {!favorite && collections.map((collection) => 
+                    <CardCollection key={collection.name} collection={collection}/>
+                )}
+                {favorite && collections.map((collection) => collection.favorite &&
+                    <CardCollection key={collection.name} collection={collection}/>
+                )}
+                {!favorite && <AddCollection/>}
+            </div>
         </div>
-        <div className='container'>
-            {!favorite && lists.map((data) => 
-                <CardCollection key={data.name} data={data}/>
-            )}
-            {favorite && lists.map((data) => data.favorite &&
-                <CardCollection key={data.name} data={data}/>
-            )}
-            {!favorite && <AddCollection/>}
-        </div>
-    </div>
-  )
+    )
 }

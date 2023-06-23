@@ -6,12 +6,12 @@ import FormAddCollection from './form/FormAddCollection';
 
 export default function AddCollection() {
     const [open, setOpen] = useState(false);
-  return (
-    <div>
-        <div className='addbutton' onClick={() => setOpen(true)}>
-            <AddIcon/>
-        </div>
-        <BasicModal open={open} setOpen={setOpen} element={<FormAddCollection setOpen={setOpen}/>}/>
-    </div>
+  	return (
+		<div>
+			<div className='addbutton' onClick={() => setOpen(true)}>
+				<AddIcon/>
+			</div>
+			<BasicModal open={ open } setOpen={ setOpen } element={ <FormAddCollection setOpen={ setOpen }/> }/>
+		</div>
   )
 }

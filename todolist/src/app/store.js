@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import todolistReducer from '../features/todolist/todolistSlice'
-import listReducer from '../features/lists/listsSlice'
+import collectionsReducer from '../features/collections/collectionsSlice'
 import userReducer from '../features/user/userSlice'
 import settingsReducer from '../features/settings/settingsSlice'
 
 export default configureStore({
     reducer: {
         todolist: todolistReducer,
-        list: listReducer,
+        collections: collectionsReducer,
         user: userReducer,
         settings: settingsReducer
     }

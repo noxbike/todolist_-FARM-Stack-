@@ -21,13 +21,13 @@ export default function BasicModal(props) {
   return (
     <div>
       <Modal
-        open={props.open}
-        onClose={handleClose}
+        open={ props.open }
+        onClose={ handleClose }
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-            {props.element}
+        <Box sx={ style }>
+            { props.element }
         </Box>
       </Modal>
     </div>

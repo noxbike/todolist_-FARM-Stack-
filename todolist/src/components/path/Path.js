@@ -5,19 +5,20 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export default function Path(props) {
-  return (
-    <div id='container-path'>
-        <div id='title'>
-            <div className='left'>
-                    <div id='previous-button' hidden={props.collection === 'Dashboard'|| props.collection === 'Collections'}>
-                        <Link to='/'><ArrowBackIosIcon/></Link>
-                    </div>
-                <h2>{props.collection} </h2>
-            </div>
-            <div className='right'>
-                <MoreHorizIcon style={{color: "gray"}}/>
+    const collection = props.collection
+    return (
+        <div id='container-path'>
+            <div id='title'>
+                <div className='left'>
+                        <div id='previous-button' hidden={ collection === 'Dashboard'|| collection === 'Collections' }>
+                            <Link to='/'><ArrowBackIosIcon/></Link>
+                        </div>
+                    <h2>{ collection } </h2>
+                </div>
+                <div className='right'>
+                    <MoreHorizIcon style={{ color: "gray" }}/>
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }

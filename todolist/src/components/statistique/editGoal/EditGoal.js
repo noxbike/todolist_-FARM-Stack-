@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import { weekday } from '../../date/date';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 import './editGoal.css'
-import { useDispatch } from 'react-redux';
+import Box from '@mui/material/Box';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
 import { week } from '../../../features/settings/settingsSlice';
+import { weekday } from '../../date/date';
+import { useDispatch } from 'react-redux';
 
 export default function EditGoal() {
-  const [numberGoal, setNumberGoal] =useState(0)
-  const [from, setFrom] = useState(0)
-  const [to, setTo] = useState(5);
   const dispatch = useDispatch();
+  const [to, setTo] = useState(5);
+  const [from, setFrom] = useState(0)
+  const [numberGoal, setNumberGoal] = useState(0)
 
+  //Save new Goal edited by user
   const onSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();

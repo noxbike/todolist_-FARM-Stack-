@@ -5,14 +5,14 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 export default function Menu(props) {
-  const lists = useSelector(state => state.list.value);
+  const collections = useSelector(state => state.collections.value);
   return (
     <div id="menu">
         <div className='container'>
             <h5>Collections</h5>
-            {lists.map((data) => 
-              <Link key={data.name} to={`/collection/${data.name}` }>
-                <Collections selected={props.selected} name={data.name} color={data.color} icon={data.icon}/>
+            {collections.map((collection) => 
+              <Link key={ collection.name } to={ `/collection/${ collection.name }` }>
+                <Collections selected={ props.selected } name={ collection.name } color={ collection.color } icon={ collection.icon }/>
               </Link>
             )}
         </div>

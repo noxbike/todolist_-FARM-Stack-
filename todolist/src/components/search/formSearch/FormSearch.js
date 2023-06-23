@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import "./formSearch.css"
-import TextField from '@mui/material/TextField';
 import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
+import TextField from '@mui/material/TextField';
 import Todolist from '../../todolist/Todolist';
 
 export default function FormSearch() {
   const todolist = useSelector(state => state.todolist.value);
-  const [data, setData] = useState([])
+  const [todoFound, setTodoFound] = useState([])
   const [textSearch, setTextSearch] = useState("");
 
+  //Search a todo from the search input
+  //Using regex to test all todo that match the input
   useEffect(() => {
-    console.log(textSearch)
     let tab = [];
     if(textSearch.length > 0){
       let filterword = new RegExp(`${textSearch.toLowerCase()}`, 'g');
-      todolist.filter(data => filterword.test(data.task.toLowerCase()) && !data.complete ? tab.push(data): false)
+      todolist.filter(todo => filterword.test(todo.task.toLowerCase()) && !todo.complete ? tab.push(todo): false)
     }
-    return setData(tab)
+    return setTodoFound(tab)
   },[todolist, textSearch]);
 
   return (
@@ -33,9 +34,9 @@ export default function FormSearch() {
             noValidate
             autoComplete="off"
         >
-        <TextField id="filled-basic" label="Task" variant="filled" onChange={(e) =>setTextSearch(e.target.value)} />
+        <TextField id="filled-basic" label="Task" variant="filled" onChange={ (e) =>setTextSearch(e.target.value) } />
         <div className='data'>
-          <Todolist done={false} color={'blue'} data={data}/>
+          <Todolist done={ false } todolists={ todoFound }/>
         </div>
         </Box>
 
