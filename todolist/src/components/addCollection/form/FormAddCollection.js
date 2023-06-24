@@ -3,31 +3,33 @@ import './formAddCollection.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import { addCollection } from '../../../features/collections/collectionsSlice';
 import { useDispatch } from 'react-redux';
-import { addList } from '../../../features/collections/collectionsSlice';
 
 export default function FormAddCollection(props) {
+    const dispatch = useDispatch();
     const [list, setList] = useState({ name: '', color: '#43da86', icon: <FolderOpenIcon/> });
     const [color, setColor] = useState("#43da86");
-    const dispatch = useDispatch();
 
+    //When user input change
+    //Change the list
     const handleChange = (value, key) => {
-        if(key === 'color'){
-            setColor(value);
-        }
+        setColor(key === 'color' && value);
+
         let tab = list;
         for(let item in tab){
-            if(key === item){
-                tab[item] = value;
-            }
+            tab[item] = key === item && value;
         }
+
         setList(tab);
     }
 
+    //Add a new collection with redux dispatch without reloading page
+    //And close the modal window
     const onSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        dispatch(addList(list));
+        dispatch(addCollection(list));
         props.setOpen(false)
     }
 
@@ -35,7 +37,7 @@ export default function FormAddCollection(props) {
         <div>
             <div id='formAddCollection'>
                 <h2>Create a list</h2>
-                <Box onSubmit={onSubmit}
+                <Box onSubmit={ onSubmit }
                     component="form"
                     sx={{
                         '& > :not(style)': { m: 1, width: '50ch' },

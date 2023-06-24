@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './chart.css'
 import BarChartIcon from '@mui/icons-material/BarChart';
+import { weekday } from '../../date/date';
 import { useSelector } from 'react-redux';
 import {
   Chart as ChartJS,
@@ -17,7 +18,6 @@ ChartJS.register(
   Title,
 );
 
-const labels = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sathurday'];
 
 export default function Chart() {
 	const todolist = useSelector(state => state.todolist.value);
@@ -46,7 +46,7 @@ export default function Chart() {
 	}, [todolist]);
 
 	const data = {
-		labels: labels,
+		labels: weekday,
 		datasets: [{
 			data: completedTasksCountByDay,
 			backgroundColor: ["rgb(235,0,205)"],

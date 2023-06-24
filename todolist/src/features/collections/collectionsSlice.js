@@ -7,17 +7,17 @@ export const collectionsSlice = createSlice({
         value: collections,
     },
     reducers: {
-        getLists: state => {},
+        getCollection: state => {},
         addCollection: (state, action)=> {
             let tab = state.value
             tab.push(action.payload)
             state.value = tab
         },
-        deleteList: (state, action) => {},
-        updateList: (state, action) => {}
+        deleteCollection: (state, action) => {},
+        updateCollection: (state, action) => {}
     }
 })
 
-export const {getLists, addList, updateList, deleteList} = collectionsSlice.actions
+export const {getCollection, addCollection, updateCollection, deleteCollection} = collectionsSlice.actions
 
 export default collectionsSlice.reducer

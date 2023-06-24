@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 export default function Welcome() {
     const user = useSelector(state => state.user.value)
+    const hours = new Date().getHours();
     const message = (hours) => {
         if(hours <= 12) 
             return 'Good morning';
@@ -10,13 +11,11 @@ export default function Welcome() {
             return 'Good afternoon';
         else
             return 'Good evening';
-
-
     }
-    const hours = new Date().getHours();
-  return (
-    <div>
-        <h1>{message(hours)},<br/>{user.name}</h1>
-    </div>
-  )
+
+    return (
+        <div>
+            <h1>{ message(hours) },<br/>{ user.name }</h1>
+        </div>
+    )
 }

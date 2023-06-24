@@ -1,7 +1,7 @@
-import AllCollections from "../Layout/collections/AllCollections";
-import Dashboard from "../Layout/dashboard/Dashboard";
-import TodoInCollection from "../Layout/todoInCollection/TodoInCollection";
 import Account from "../Layout/account/Account";
+import Dashboard from "../Layout/dashboard/Dashboard";
+import AllCollections from "../Layout/collections/AllCollections";
+import TodoInCollection from "../Layout/todoInCollection/TodoInCollection";
 
 export const routes = [
     {

@@ -29,7 +29,7 @@ export default function EditGoal() {
   return (
     <div id="EditGoal">
       <h3>Edit Goal</h3>
-      <Box onSubmit={onSubmit}
+      <Box onSubmit={ onSubmit }
             component="form"
             sx={{
                 '& > :not(style)': { m: 1, width: '25ch' },
@@ -41,26 +41,26 @@ export default function EditGoal() {
           <Select
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
-              value={from}
-              onChange={event => setFrom(event.target.value)}
+              value={ from }
+              onChange={ event => setFrom(event.target.value) }
           >
-            {weekday.map((day, index) => 
-                <MenuItem key={index} value={index}>{day}</MenuItem>
+            { weekday.map((day, index) => 
+                <MenuItem key={ index } value={ index }>{ day }</MenuItem>
             )}
           </Select>
           <InputLabel id="demo-simple-select-filled-label">To</InputLabel>
           <Select
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
-              value={to}
-              onChange={event => setTo(event.target.value)}
+              value={ to }
+              onChange={ event => setTo(event.target.value) }
           >
             {weekday.map((day,index) => index > from &&
-                <MenuItem key={index} value={index}>{day}</MenuItem>
+                <MenuItem key={ index } value={ index }>{ day }</MenuItem>
             )}
         </Select>
         <div className='input'>
-          <TextField id="filled-basic" label="Goal Number" variant="filled" value={numberGoal} onChange={(e) => setNumberGoal(e.target.value)} />
+          <TextField id="filled-basic" label="Goal Number" variant="filled" value={ numberGoal } onChange={ (e) => setNumberGoal(e.target.value) } />
         </div>
 
       <div className='button'>

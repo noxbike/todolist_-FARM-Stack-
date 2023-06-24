@@ -53,9 +53,9 @@ export default function WeeklyGoal(props) {
 				</div>
 			</div>
 			<div className='button'>
-				<Stack direction="row" spacing={2}>
-					<Chip label="Show completed" sx={{borderRadius: '10px'}} variant={`${props.view && "outlined"}`} onClick={() => props.setView(false)}/>
-					<Chip label="Edit Goal" sx={{borderRadius: '10px'}} variant={`${!props.view && "outlined"}`} onClick={() => props.setView(true)}/>
+				<Stack direction="row" spacing={ 2 }>
+					<Chip label="Show completed" sx={{ borderRadius: '10px' }} variant={ `${ props.view && "outlined" }` } onClick={ () => props.setView(false) }/>
+					<Chip label="Edit Goal" sx={{ borderRadius: '10px' }} variant={ `${ !props.view && "outlined"}` } onClick={ () => props.setView(true) }/>
 				</Stack>
 			</div>
 		</div>
