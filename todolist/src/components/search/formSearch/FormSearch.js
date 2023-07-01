@@ -13,12 +13,11 @@ export default function FormSearch() {
   //Search a todo from the search input
   //Using regex to test all todo that match the input
   useEffect(() => {
-    let tab = [];
+    let todoFoundBySearch = null;
     if(textSearch.length > 0){
-      let filterword = new RegExp(`${textSearch.toLowerCase()}`, 'g');
-      todolist.filter(todo => filterword.test(todo.task.toLowerCase()) && !todo.complete ? tab.push(todo): false)
+      todoFoundBySearch = todolist.filter(todo => todo.task.toLowerCase().includes(textSearch.toLowerCase()) && !todo.complete)
     }
-    return setTodoFound(tab)
+    return setTodoFound(todoFoundBySearch || todolist)
   },[todolist, textSearch]);
 
   return (

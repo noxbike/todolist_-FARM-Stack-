@@ -8,14 +8,9 @@ export const todolistSlice = createSlice({
     },
     reducers: {
         completeTodolist: (state, action) => {
-            let tab = state.value;
-            for(let key in tab){
-                if(tab[key].id === action.payload){
-                    tab[key].complete = true;
-                    tab[key].dateCompletion = new Date();
-                }
-            }
-            state.value = tab;
+            let findTodoById = state.value.filter(todo => todo.id === action.payload)[0]
+            findTodoById.complete = true;
+            findTodoById.dateCompletion = new Date();
         },
         addTodolist: (state, action) => {
             let tab = state.value

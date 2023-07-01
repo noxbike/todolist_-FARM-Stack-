@@ -14,14 +14,10 @@ export default function FormAddCollection(props) {
     //When user input change
     //Change the list
     const handleChange = (value, key) => {
+        let copyList = list;
+        copyList[key] = value;
         setColor(key === 'color' && value);
-
-        let tab = list;
-        for(let item in tab){
-            tab[item] = key === item && value;
-        }
-
-        setList(tab);
+        setList(copyList);
     }
 
     //Add a new collection with redux dispatch without reloading page

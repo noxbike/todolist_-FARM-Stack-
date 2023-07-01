@@ -1,17 +1,18 @@
 import React, {useState} from 'react'
-import "./dashboard.css"
-import Menu from '../../components/menu/Menu'
 import { useSelector } from 'react-redux'
+import Menu from '../../components/menu/Menu'
+import Welcome from '../../components/welcome/Welcome'
 import DropdownCollection from '../../components/dropdownCollection/DropdownCollection'
 import Path from '../../components/path/Path'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Statistique from '../../components/statistique/Statistique'
-import Welcome from '../../components/welcome/Welcome'
+import "./dashboard.css"
 
 export default function Dashboard() {
 	const [component, setComponent] = useState(true)
 	const collections = useSelector(state => state.collections.value);
+
 	return (
 		<div id='dashboard'>
 		<Menu/>
@@ -35,9 +36,14 @@ export default function Dashboard() {
 			/>
 		</Stack>
 		</div>
-		{component ? 
+		{ component ? 
 			<div className='todolist'>
-				{collections.map(collection => <DropdownCollection key={collection.name} collection={collection}/>)}
+				{ collections.map(collection => 
+					<DropdownCollection
+						key={ collection.name }
+						collection={ collection }
+					/>
+				)}
 			</div> : <Statistique/>
 		}
 		

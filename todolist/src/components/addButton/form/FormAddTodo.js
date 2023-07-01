@@ -6,6 +6,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import dayjs from 'dayjs';
+import {format} from 'dayjs';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -24,18 +25,16 @@ export default function FormAddTodo(props) {
         description: '',
         lists: collectionUrl,
         tag: '',
-        when: dayjs(new Date()),
+        when: null,
         complete: false
     })
 
     //Change the data in todo
     const handleChange = (value, key) => {
-        let tab = todo;
+        let copyTodo = todo;
         key ==='lists' && setlist(value);
-        for(let item in tab){
-            tab[item] = key === item && value;
-        }
-        setTodo(tab);
+        copyTodo[key] = key === 'when' ? value.toISOString(): value;
+        setTodo(copyTodo);
     };
 
     //add new tasks with redux dispatch without reloading the page

@@ -11,7 +11,7 @@ export default function Todolist(props) {
     const dispatch = useDispatch();
     const collections = useSelector(state => state.collections.value);
     const todolists = props.todolists;
-    const done =  props.done;
+    const isComplete =  props.isComplete;
 
     //Mark the todo complete
     const handleChange = (index) => {
@@ -19,9 +19,9 @@ export default function Todolist(props) {
     }
     
     //get the collection colors for the todo checkbox design
-    const getColor = (item) => {
-        let result = collections.filter(collection => collection.name === item)[0]
-        return result.color;
+    const getColor = (nameOfCollection) => {
+        let findCollection = collections.filter(collection => collection.name === nameOfCollection)[0]
+        return findCollection.color;
     }
 
     return (
@@ -33,9 +33,9 @@ export default function Todolist(props) {
                             <CheckIcon className="icon" sx={{ color:`${ !todo.complete ? "#1e1e1e" : "black" }` }}/>
                     </div>
 
-                    <div className={ `detail-${ !done ? "complete":"incomplete" }` }>
-                        <p>{ !done ? todo.task : <strike>{ todo.task }</strike> }</p>
-                        { !done && <p className="hours" style={{ color: `${ colorDate(todo.when) }` }}>{ day(todo.when).length > 0 && <DateRangeIcon sx={{ fontSize: 17 }}/>}{ day(todo.when) }</p> }
+                    <div className={ `detail-${ !isComplete ? "complete":"incomplete" }` }>
+                        <p>{ !isComplete ? todo.task : <strike>{ todo.task }</strike> }</p>
+                        { !isComplete && <p className="hours" style={{ color: `${ colorDate(todo.when) }` }}>{ day(todo.when).length > 0 && <DateRangeIcon sx={{ fontSize: 17 }}/>}{ day(todo.when) }</p> }
                     </div>
                 </div>
             ).reverse()}

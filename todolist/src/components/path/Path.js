@@ -6,6 +6,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export default function Path(props) {
     const collection = props.collection
+
     return (
         <div id='container-path'>
             <div id='title'>
@@ -13,7 +14,7 @@ export default function Path(props) {
                         <div id='previous-button' hidden={ collection === 'Dashboard'|| collection === 'Collections' }>
                             <Link to='/'><ArrowBackIosIcon/></Link>
                         </div>
-                    <h2>{ collection } </h2>
+                    <h2>{ collection }</h2>
                 </div>
                 <div className='right'>
                     <MoreHorizIcon style={{ color: "gray" }}/>
